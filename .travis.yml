@@ -1,0 +1,11 @@
+language: java
+jdk:
+- oraclejdk8
+services:
+  - docker
+install: true
+script:
+ - gradle clean build docker -x test
+after_success:
+  - docker login -u="ashraf1abdelrasool" -p="01120266849";
+  - docker push ashraf1abdelrasool/torrentclient;
